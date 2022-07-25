@@ -13,16 +13,27 @@ inline int read() {
     return f ? ~ x + 1: x;
     #endif
 }
-void solve () {
-    int n; cin >> n;
+void sovle () {
+    int n, l, r;
+    cin >> n >> l >> r;
     vector<int> A(n + 1);
-    for (int i = 0; i < n; i ++ ) cin >> A[i];
-    for (int i = 1; i < n; i ++ )
-        if (A[i] % A[0]) {
-            cout << "NO" << endl;
-            return ;
+    for (int i = 1; i <= n; i ++ ) {
+        int x = l / i, y = r / i;
+        if (l % i == 0) A[i] = l;
+        else if (r % i == 0) A[i] = r;
+        else {
+            if (x == y) {
+                cout << "NO" << endl;
+                return ;
+            }
+            else {
+                A[i] = y * i;
+            }
         }
+    }
     cout << "YES" << endl;
+    for (int i = 1; i <= n; i ++ ) cout << A[i] << ' ';
+    cout << endl;
     return ;
 }
 signed main () {
@@ -30,6 +41,6 @@ signed main () {
     cin.tie(nullptr); cout.tie(nullptr);
     int tt; cin >> tt;
     while (tt -- )
-        solve();
+        sovle();
     return 0;
 }

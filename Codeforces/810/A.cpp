@@ -15,15 +15,9 @@ inline int read() {
 }
 void solve () {
     int n; cin >> n;
-    vector<int> A(n + 1);
-    for (int i = 0; i < n; i ++ ) cin >> A[i];
-    for (int i = 1; i < n; i ++ )
-        if (A[i] % A[0]) {
-            cout << "NO" << endl;
-            return ;
-        }
-    cout << "YES" << endl;
-    return ;
+    cout << n << ' ';
+    for (int i = 1; i <= n - 1; i ++ ) cout << i << ' ';
+    cout << endl;
 }
 signed main () {
     ios::sync_with_stdio(false);

@@ -13,8 +13,14 @@ inline int read() {
     return f ? ~ x + 1: x;
     #endif
 }
+void solve () {
+    return ;
+}
 signed main () {
     ios::sync_with_stdio(false);
     cin.tie(nullptr); cout.tie(nullptr);
+    int tt; cin >> tt;
+    while (tt -- )
+        solve();
     return 0;
 }
