@@ -4,7 +4,6 @@ using namespace std;
 #define x first
 #define y second
 typedef pair<int, int> pii;
-int fp(int a, int n) {int res = 0; while (n) {if (n & 1) res = res * a; a = a * a; n >>= 1;} return res;}
 inline int read() {
     #ifndef gc
     #define gc() c=getchar()
