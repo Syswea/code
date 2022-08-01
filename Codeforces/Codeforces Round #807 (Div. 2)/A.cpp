@@ -14,6 +14,16 @@ inline int read() {
     #endif
 }
 void solve () {
+    int n, x; cin >> n >> x;
+    vector<int> A(2 * n + 1);
+    for (int i = 1; i <= 2 * n; i ++ ) cin >> A[i];
+    sort(A.begin(), A.end());
+    for (int i = 1; i <= n; i ++ )
+        if (A[i] + x > A[i + n]) {
+            cout << "NO" << endl;
+            return ;
+        }
+    cout << "YES" << endl;
     return ;
 }
 signed main () {
