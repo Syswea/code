@@ -17,26 +17,18 @@ inline int read() {
 void solve () {
     int n; cin >> n;
     string s[n];
-    set<string> st;
-    int xmax = 0;
+    map<string, int> mp;
     for (int i = 0; i < n; i ++ ) {
         cin >> s[i];
-        st.insert(s[i]);
+        mp[s[i]] = 1;
     }
-    for (int k = 0; k < n; k ++ ) {
-        int t = 0;
-        for (int i = 0; i < n; i ++ ) {
-            if (i == k || s[i].size() > s[k].size()) continue;
-            int f = 0;
-            for (int j = 0; j < s[i].size(); j ++ )
-                if (s[i][j] != s[k][j]) f = 1;
-            if (f) continue;
-            string tmp = "";
-            int cnt = 0;
-            for (int j = s[i].size(); j < s[k].size(); j ++ ) tmp += s[k][j];
-            if (st.find(tmp) != st.end()) t = 1;
+    for (int i = 0; i < n; i ++ ) {
+        int f = 0;
+        for (int j = 1; j < s[i].size(); j ++ ) {
+            string prefix = s[i].substr(0, j), suffix = s[i].substr(j, s[i].size() - j);
+            if (mp[prefix] && mp[suffix]) f = 1;
         }
-        cout << t ;
+        cout << f ;
     }cout << endl;
     return ;
 }

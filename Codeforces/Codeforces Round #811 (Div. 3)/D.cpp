@@ -19,12 +19,14 @@ void solve () {
     cin >> t;
     int n; cin >> n;
     for (int i = 0; i < n; i ++ ) cin >> s[i];
+
     int ans[110];
     int vis[110] = {};
     memset(ans, 0x1231, sizeof ans);
-    ans[0] = 0;
+    ans[0] = 0, vis[0] = 1;
 
-    int cas[110], ne[110];
+    int cas[110], bf[110];
+    bf[0] = -1;
 
     for (int tmp = 0; tmp < t.size(); tmp ++ ) {
         for (int i = 0; i < n; i ++ ) {
@@ -33,18 +35,19 @@ void solve () {
                 if (tmp + k >= t.size() || t[tmp + k] != s[i][k]) f = 0;
             }
             if (f == 0) continue;
+            if (vis[tmp] == 0) continue;
             int k = tmp + s[i].size();
-            for (int j = tmp + 1; j <= k; j ++ ) {
+            for (int j = tmp + 1; j <= k && j <= t.size(); j ++ ) {
                 if (vis[j] == 0) {
                     ans[j] = ans[tmp] + 1;
                     cas[j] = i;
-                    ne[j] = tmp;
+                    bf[j] = tmp;
                 }
                 else {
                     if (ans[tmp] + 1 < ans [j]) {
                         ans[j] = ans[tmp] + 1;
                         cas[j] = i;
-                        ne[j] = tmp;
+                        bf[j] = tmp;
                     }
                 }
                 vis[j] = 1;
@@ -56,21 +59,9 @@ void solve () {
     else {
         cout << ans[t.size()] << endl;
         int cnt = ans[t.size()];
-        cout << cas[t.size()] + 1 << ' ' << t.size() - s[cas[t.size()]].size() + 1 << endl;
-        cnt -- ;
-        int k = t.size() - s[cas[t.size()]].size();
-        while (k >= 1) {
-            for (;; k ++ ) {
-                if (vis[k] == 1) {
-                    if (k - s[cas[k]].size() + 1 <= 1 ) {
-                        cout << cas[k] + 1 << ' ' << k - s[cas[k]].size() + 1 << endl;
-                        break;
-                    }
-                    cout << cas[k] + 1 << ' ' << k - s[cas[k]].size() + 1 << endl;
-                    k = k - s[cas[k]].size();
-                    break;
-                }
-            }
+        for (int i = t.size(); i >= 0 && cnt -- ; i = bf[i]) {
+            int t = cas[i];
+            cout << t + 1 << ' ' << bf[i] + 1 << endl;
         }
     }
     return ;
