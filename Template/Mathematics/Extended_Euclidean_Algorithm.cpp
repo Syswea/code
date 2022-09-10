@@ -20,5 +20,10 @@ x = x_0 - b / d * k;
 y = y_0 + a / d * k;
 */
 signed main () {
+    int a, b, x, y;
+    cin >> a >> b;
+    int d = exgcd(a, b, x, y);
+    y = y + (a / d) * (x / (b / d));
+    x = x - (b / d) * (x / (b / d));
     return 0;
 }
