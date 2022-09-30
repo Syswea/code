@@ -7,7 +7,7 @@ vector<vector<int> > case1 (int n) {
     vector<vector<int> > c(n + 1, vector<int>(n + 1));
     for (int i = 0; i <= n; i ++ )
         for (int j = 0; j <= i; j ++ )
-            if (j == 0) c[i][j] = 1;
+            if (j == 0 || i == j) c[i][j] = 1;
             else c[i][j] = c[i - 1][j] + c[i - 1][j - 1] % p;
     return c;
 }
