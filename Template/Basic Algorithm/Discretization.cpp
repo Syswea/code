@@ -55,3 +55,12 @@ int main () {
 
     return 0;
 }
+/*
+int n;
+vector<int> a(n), alls(n);
+for (int i = 0; i < n; i ++ ) cin >> a[i], alls[i] = a[i];
+sort(alls.begin(), alls.end());
+alls.erase(unique(alls.begin(), alls.end()), alls.end());
+map<int, int> st;
+for (int i = 0; i < alls.size(); i ++ ) st.insert({alls[i], i});
+*/
