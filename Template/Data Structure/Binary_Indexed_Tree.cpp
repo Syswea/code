@@ -4,22 +4,27 @@ using namespace std;
 const int N = 5e5 + 10;
 int n, m;
 struct BIT {
-    int st[N];
-    BIT() {memset(st, 0, sizeof st);};
+    int n;
+    vector<int> C;
+    BIT(int k) {
+        n = k;
+        C = vector<int>(n + 1, 0);
+    }
     void add (int x, int y) {
-        while (x <= n) st[x] += y, x += x & -x;
+        while (x <= n) C[x] += y, x += x & -x;
     }
     int sum(int x) {
         int res = 0;
-        while (x) res += st[x], x -= x & -x;
+        while (x) res += C[x], x -= x & -x;
         return res;
     }
     int query(int x, int y) {
         return sum(y) - sum(x - 1);
     }
-} t = BIT();
+};
 signed main () {
     cin >> n >> m;
+    t = BIT(n);
     for (int i = 1, k; i <= n; i ++ ) {
         cin >> k;
         t.add(i, k);
