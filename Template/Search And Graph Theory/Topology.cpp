@@ -4,7 +4,7 @@ const int N = 1e5 + 10;
 int deg[N], vis[N];
 int q[N], hh = 1, tt = 0;
 vector<vector<int> > vec(N + 1);
-//有重边有自环也适用
+//Applicable even with duplicate edges and self-loops
 int main () {
     int n, m; cin >> n >> m;
     for (int i = 0; i < m; i ++ ) {

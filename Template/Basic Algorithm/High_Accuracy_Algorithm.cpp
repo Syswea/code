@@ -2,7 +2,7 @@
 
 using namespace std;
 
-//不从1开始，可以理解为进制次数
+//Not starting from 1, can be understood as radix times
 
 // C = A + B, A >= 0, B >= 0
 vector<int> add(vector<int> &A, vector<int> &B) {
@@ -22,7 +22,7 @@ vector<int> add(vector<int> &A, vector<int> &B) {
     return C;
 }
 
-// C = A - B, 满足A >= B, A >= 0, B >= 0
+// C = A - B, require A >= B, A >= 0, B >= 0
 vector<int> sub(vector<int> &A, vector<int> &B) {
     vector<int> C;
     for (int i = 0, t = 0; i < A.size(); i ++ ) {

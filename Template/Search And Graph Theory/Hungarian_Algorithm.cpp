@@ -11,22 +11,21 @@ signed main () {
       cin >> u >> v;
       e[u].push_back(v);
    }
+   int idx = 0;
    vector<int> st(n2 + 1, 0), match(n2 + 1, 0);
    function<int(int)> find = [&](int u) {
-      for (int v: e[u]) {
-         if (st[v] == 0) {
-            st[v] = 1;
-            if (match[v] == 0 || find(match[v])) {
-               match[v] = u;
-               return true;
-            }
+      for (int v: e[u]) if (st[v] != idx) {
+         st[v] = idx;
+         if (match[v] == 0 || find(match[v])) {
+            match[v] = u;
+            return true;
          }
       }
       return false;
    };
    int res = 0;
    for (int i = 1; i <= n1; i ++ ) {
-      st = vector<int>(n2, 0);
+      idx ++ ;
       if (find(i)) res ++ ;
    }
    cout << res << '\n' ;

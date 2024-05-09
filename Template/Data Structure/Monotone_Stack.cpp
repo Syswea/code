@@ -13,7 +13,7 @@ int main () {
     int k;
     while (n -- ) {
         cin >> k;
-        while (k <= sta[top] && top) -- top;//栈内有元素才能 pop
+        while (k <= sta[top] && top) -- top;//Only pop when there are elements in the stack
         cout << sta[top] << ' ';
         sta[++ top] = k;
     }

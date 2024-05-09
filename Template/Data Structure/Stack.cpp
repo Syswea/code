@@ -1,20 +1,21 @@
 const int N = 1e6 + 10;
 
-//栈
-int sta[N], top = 0;//栈底是1,top既是栈顶,也是栈中元素的个数
-//入栈x
-void insert (int x) {
-    sta[++ top] = x;
+// Stack
+int sta[N], top = 0;
+// The bottom of the stack is 1, top is both the top of the stack and the number of elements in the stack
+// Push x onto the stack
+void insert(int x) {
+    sta[++top] = x;
 }
-//找出top元素
-int top_element () {
+// Find the top element
+int top_element() {
     return sta[top];
 }
-//删除栈顶元素
-void pop () {
-    -- top;
+// Pop the top element of the stack
+void pop() {
+    --top;
 }
-//元素个数
+// Number of elements
 int size() {
     return top;
 }

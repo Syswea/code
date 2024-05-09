@@ -4,7 +4,7 @@ using namespace std;
 
 const int N = 100010;
 
-//根据题目中的要求初始化idx
+//init idx according to the requirements in the problem statement
 int head = -1, idx = 1;
 struct node {
     int to, next;

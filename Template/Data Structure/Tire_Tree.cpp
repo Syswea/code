@@ -1,4 +1,4 @@
-//高效的存储和查找字符串集合的数据结构
+// An efficient data structure for storing and querying a set of strings
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -11,7 +11,7 @@ void insert (string s) {
     int p = 0;
     for (auto k : s) {
         int v = k - 'a';
-        if (!a[p][v]) a[p][v] = ++idx;//记录节点编号
+        if (!a[p][v]) a[p][v] = ++idx;// Record the node number
         p = a[p][v];
     }
     ++ cnt[p];
@@ -22,10 +22,10 @@ int query (string s) {
     int p = 0;
     for (auto k : s) {
         int v = k - 'a';
-        if (!a[p][v]) return 0;//空节点
+        if (!a[p][v]) return 0;// Empty node
         p = a[p][v];
     }
-    return cnt[p];//以p为节点的单词个数
+    return cnt[p];// Number of words with p as the node
 }
 
 int n;

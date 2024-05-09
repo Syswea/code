@@ -19,8 +19,6 @@ void pushup (int u) {
     return ;
 }
 
-//单点修改不写pushdown
-//modify和query不写pushdown就行了
 void pushdown (int u) {
     node &root = tr[u], &left = tr[u << 1], &right = tr[u << 1 | 1];
     if (root.add) {

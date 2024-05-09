@@ -7,16 +7,16 @@ const int N = 1e3 + 10;
 int n, m, q;
 int a[N], b[N];
 int g[N][N];
-//一维差分
-//作用是区间修改
-void insert (int l, int r, int c) {
+// One-dimensional difference
+// Used for interval modification
+void insert(int l, int r, int c) {
     b[l] += c;
     b[r + 1] -= c;
-    return ;
+    return;
 }
-//二维差分
-//构造为插入差分
-//查询为前缀
+// Two-dimensional difference
+// Construct as insert difference
+// Query as prefix
 void insert (int x1, int y1, int x2, int y2, int c) {
     g[x1][y1] += c;
     g[x2 + 1][y1] -= c;

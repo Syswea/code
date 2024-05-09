@@ -3,12 +3,12 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-priority_queue<int> pq_greater;//大根堆
-priority_queue<int, vector<int>, greater<>()> pq_less;//小根堆
+priority_queue<int> pq_greater;
+priority_queue<int, vector<int>, greater<>()> pq_less;
 
 const int N = 1e5 + 10;
 int h[N], siz;
-//从 1 开始符合数组模拟二叉树
+//start from 1
 
 void down (int u) {
     int t = u;

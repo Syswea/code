@@ -4,8 +4,7 @@ using namespace std;
 
 const int N = 1e4 + 10;
 
-//prefix_前缀和
-//一维前缀和
+//prefix
 int *prefix_singel (int *a) {
     int s[N];
     int n = N;
@@ -19,7 +18,6 @@ int search (int *s, int x, int y) {
     return s[y] - s[x - 1];
 }
 
-//二维前缀和
 int **prefix_binary (int **a) {
     int **s;
     int n = N;

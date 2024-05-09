@@ -1,5 +1,5 @@
-//单调队列保存数组下标用来判断是否越界
-//一定记得判断非空才能操作
+//A monotonic queue is used to store array indices to determine whether it is out of bounds
+//Always remember to check for non-empty before performing operations
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -20,7 +20,7 @@ int main () {
     for (int i = 1; i <= n; i ++ ) cin >> a[i];
 
     for (int i = 1; i < k; i ++ ) {
-        while (i - q[hh] >= k && hh <= tt) ++ hh;//出队时判断是否为空
+        while (i - q[hh] >= k && hh <= tt) ++ hh;//Check for emptiness when dequeuing
         while (a[q[tt]] >= a[i] && hh <= tt) -- tt;
         q[++ tt] = i;
     }
@@ -30,7 +30,8 @@ int main () {
         q[++ tt] = i;
         cout << a[q[hh]] << ' ';
     }
-    //也可以都保存下来
+    //You can also save them all
+
     // for (int i = 1; i < k; i ++ ) {
     //     while (i - q[hh].second >= k && hh <= tt) ++ hh;
     //     while (q[tt].first >= a[i] && hh <= tt) -- tt;
@@ -45,7 +46,7 @@ int main () {
 
     cout << endl;
 
-    hh = 1, tt = 0;//初始化
+    hh = 1, tt = 0;//init
     for (int i = 1; i < k; i ++ ) {
         while (i - q[hh] >= k && hh <= tt) ++ hh;
         while (a[q[tt]] <= a[i] && hh <= tt) -- tt;
