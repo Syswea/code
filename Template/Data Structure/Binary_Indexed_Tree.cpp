@@ -24,7 +24,7 @@ struct BIT {
 };
 signed main () {
     cin >> n >> m;
-    t = BIT(n);
+    BIT t = BIT(n);
     for (int i = 1, k; i <= n; i ++ ) {
         cin >> k;
         t.add(i, k);
